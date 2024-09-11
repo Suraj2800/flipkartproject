@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+<title>{% block title %}FlipKart|UpdateProduct{% endblock %}</title>
+<body>
+    <div class="container">
+        <div class="row">
+            <center>
+                {% block body %}
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <table border="1px" cellpadding="3px" cellspacing="3px">
+                        <tr>
+                            {{form.as_table}}
+                        </tr>
+                    </table>
+                    <br>
+                    <input type="submit" value = "Update">
+                </form>
+                {% endblock %}
+            </center>
+        </div>
+    </div> 
+</body>

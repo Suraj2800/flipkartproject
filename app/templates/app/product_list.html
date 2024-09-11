@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Flipkart|RegisterProduct{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <center>
+            <h2><a href="/ProductRegister">Register Product</a></h2>
+            <h2><a href="/">Home</a></h2>
+            <br>
+            <table class="table-bordered">
+                <tr>
+                    <th>Sr.No</th>
+                    <th>ProductName</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Photo</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                {% for x in object_list %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{x.productname}}</td>
+                    <td>{{x.category}}</td>
+                    <td>{{x.description}}</td>
+                    <td>{{x.price}}</td>
+                    <td>{{x.images.url}}</td>
+                    <td><a href="/ProductUpdate/{{x.pk}}">Edit</a></td>
+                    <td><a href="/ProductDelete/{{x.pk}}">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </center>
+    </div>
+</div>
+{% endblock %}
